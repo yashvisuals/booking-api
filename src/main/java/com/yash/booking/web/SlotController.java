@@ -1,6 +1,9 @@
 package com.yash.booking.web;
 
+import com.yash.booking.domain.Role;
+import com.yash.booking.repo.UserRepository;
 import com.yash.booking.service.AvailabilityService;
+import com.yash.booking.web.dto.ProviderResponse;
 import com.yash.booking.web.dto.SlotResponse;
 import java.time.LocalDate;
 import java.util.List;
@@ -16,9 +19,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class SlotController {
 
     private final AvailabilityService availability;
+    private final UserRepository users;
 
-    public SlotController(AvailabilityService availability) {
+    public SlotController(AvailabilityService availability, UserRepository users) {
         this.availability = availability;
+        this.users = users;
+    }
+
+    // List all providers so customers can pick one.
+    @GetMapping
+    public List<ProviderResponse> providers() {
+        return users.findByRole(Role.PROVIDER).stream()
+            .map(u -> new ProviderResponse(u.getId(), u.getEmail()))
+            .toList();
     }
 
     // Any authenticated user (e.g. a customer) can view a provider's free slots.
