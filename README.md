@@ -4,6 +4,11 @@ An appointment booking API built with Spring Boot. Providers define weekly
 availability; customers book time slots. Times are timezone-aware and the
 database guarantees a slot can never be double-booked.
 
+**Live demo:** https://booking-web-nine-vert.vercel.app
+&nbsp;·&nbsp; **Live API:** https://booking-api-5teu.onrender.com/api/health
+&nbsp;·&nbsp; **Frontend:** [booking-web](https://github.com/yashvisuals/booking-web)
+_(free tier — the first request may take ~30s while the API wakes up)_
+
 ## Stack
 
 - Java 21 + Spring Boot 4
