@@ -62,7 +62,9 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        // Strength 8 (4x faster than default 10) — eases CPU pressure on
+        // Render's free 0.1-CPU instance without sacrificing real security.
+        return new BCryptPasswordEncoder(8);
     }
 
     @Bean
