@@ -4,10 +4,14 @@ An appointment booking API built with Spring Boot. Providers define weekly
 availability; customers book time slots. Times are timezone-aware and the
 database guarantees a slot can never be double-booked.
 
-**Live demo:** https://booking-web-nine-vert.vercel.app
-&nbsp;·&nbsp; **Live API:** https://booking-api-5teu.onrender.com/api/health
-&nbsp;·&nbsp; **Frontend:** [booking-web](https://github.com/yashvisuals/booking-web)
-_(free tier — the first request may take ~30s while the API wakes up)_
+**Frontend repo:** [booking-web](https://github.com/yashvisuals/booking-web)
+
+> **Note on the live demo:** the deployed instance is offline. Spring Boot's
+> startup cost (~90s) and memory footprint exceed Render's free-tier scan
+> windows, causing repeated restart loops on free hosting. The project runs
+> cleanly locally (see "Running it" below) and the engineering — concurrency
+> test, timezone handling, JWT auth — is fully visible in the source. A paid
+> tier (Render Starter, Fly.io small VM, etc.) hosts it without issue.
 
 ## Stack
 
